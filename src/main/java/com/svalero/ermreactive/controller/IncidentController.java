@@ -55,7 +55,7 @@ public class IncidentController {
         return ResponseEntity.status(HttpStatus.OK).body(incidentMono).getBody();
     }
 
-    @DeleteMapping("Incidents/{id}")
+    @DeleteMapping("incidents/{id}")
     public ResponseEntity<Void> deleteIncident(@PathVariable String id) throws IncidentNotFoundException {
         Mono<Incident> incidentMono = incidentService.deleteIncident(id);
         return ResponseEntity.noContent().build();

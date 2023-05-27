@@ -1,0 +1,465 @@
+{
+	"info": {
+		"_postman_id": "5b5d8d7b-ea98-4756-9509-09e114f5b45b",
+		"name": "ERM-REACTIVE",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24024464"
+	},
+	"item": [
+		{
+			"name": "Incidents",
+			"item": [
+				{
+					"name": "getIncidents",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ERM}}/incidents?key=",
+							"host": [
+								"{{ERM}}"
+							],
+							"path": [
+								"incidents"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "getIncidents-Example",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ERM}}/Incidents",
+									"host": [
+										"{{ERM}}"
+									],
+									"path": [
+										"Incidents"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "mar, 27 dic 202201:14:02 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "server",
+									"value": "Apache-Coyote/1.1",
+									"name": "server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"name": "transfer-encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"name": "content-type"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 0,\n        \"location\": \"\",\n        \"lat\": 0.0,\n        \"lon\": 0.0,\n        \"status\": 0,\n        \"description\": \"\",\n        \"startTime\": \"\"\n    }\n]"
+						},
+						{
+							"name": "getIncidents-Example status",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ERM}}/Incidents?status=",
+									"host": [
+										"{{ERM}}"
+									],
+									"path": [
+										"Incidents"
+									],
+									"query": [
+										{
+											"key": "status",
+											"value": ""
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "mar, 27 dic 202201:14:02 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "server",
+									"value": "Apache-Coyote/1.1",
+									"name": "server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"name": "transfer-encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"name": "content-type"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 0,\n        \"location\": \"\",\n        \"lat\": 0.0,\n        \"lon\": 0.0,\n        \"status\": 0,\n        \"description\": \"\",\n        \"startTime\": \"\"\n    }\n]"
+						},
+						{
+							"name": "getIncidents-Example id",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{ERM}}/Incidents?id=",
+									"host": [
+										"{{ERM}}"
+									],
+									"path": [
+										"Incidents"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": ""
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "mar, 27 dic 202201:14:02 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "server",
+									"value": "Apache-Coyote/1.1",
+									"name": "server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"name": "transfer-encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"name": "content-type"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 0,\n        \"location\": \"\",\n        \"lat\": 0.0,\n        \"lon\": 0.0,\n        \"status\": 0,\n        \"description\": \"\",\n        \"startTime\": \"\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "addIncident",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"Zaragoza\",\n  \"lat\": 30.0,\n  \"lon\": 30.0,\n  \"status\": 0,\n  \"description\": \"\",\n  \"startTime\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ERM}}/incidents",
+							"host": [
+								"{{ERM}}"
+							],
+							"path": [
+								"incidents"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "addIncident-Example",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"location\": \"\",\n    \"lat\": 0.0,\n    \"lon\": 0.0,\n    \"status\": 0,\n    \"description\": \"\",\n    \"startTime\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ERM}}",
+									"host": [
+										"{{ERM}}"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "mar, 27 dic 202201:14:02 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "server",
+									"value": "Apache-Coyote/1.1",
+									"name": "server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"name": "transfer-encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"name": "content-type"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"location\": \"\",\n    \"lat\": 0.0,\n    \"lon\": 0.0,\n    \"status\": 0,\n    \"description\": \"\",\n    \"startTime\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "modifyIncident",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"location\": \"\",\n  \"lat\": 0.0,\n  \"lon\": 0.0,\n  \"status\": 0,\n  \"description\": \"\",\n  \"startTime\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ERM}}/incidents/:id",
+							"host": [
+								"{{ERM}}"
+							],
+							"path": [
+								"incidents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "modifyIncident-Example",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"location\": \"\",\n    \"lat\": 0.0,\n    \"lon\": 0.0,\n    \"status\": 0,\n    \"description\": \"\",\n    \"startTime\": \"\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{ERM}}",
+									"host": [
+										"{{ERM}}"
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "mar, 27 dic 202201:14:02 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "server",
+									"value": "Apache-Coyote/1.1",
+									"name": "server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"name": "transfer-encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"name": "content-type"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"id\": 0,\n    \"location\": \"\",\n    \"lat\": 0.0,\n    \"lon\": 0.0,\n    \"status\": 0,\n    \"description\": \"\",\n    \"startTime\": \"\"\n}"
+						}
+					]
+				},
+				{
+					"name": "deleteIncident",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ERM}}/incidents/:id",
+							"host": [
+								"{{ERM}}"
+							],
+							"path": [
+								"incidents",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "deleteIncident-Example",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{ERM}}/Incidents/:id",
+									"host": [
+										"{{ERM}}"
+									],
+									"path": [
+										"Incidents",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id"
+										}
+									]
+								}
+							},
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "date",
+									"value": "mar, 27 dic 202201:14:02 GMT",
+									"name": "date",
+									"description": "The date and time that the message was sent"
+								},
+								{
+									"key": "server",
+									"value": "Apache-Coyote/1.1",
+									"name": "server",
+									"description": "A name for the server"
+								},
+								{
+									"key": "transfer-encoding",
+									"value": "chunked",
+									"name": "transfer-encoding",
+									"description": "The form of encoding used to safely transfer the entity to the user. Currently defined methods are: chunked, compress, deflate, gzip, identity."
+								},
+								{
+									"key": "content-type",
+									"value": "application/json;charset=UTF-8",
+									"name": "content-type"
+								}
+							],
+							"cookie": [],
+							"body": "null"
+						}
+					]
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "ERM",
+			"value": "localhost:8080"
+		}
+	]
+}
