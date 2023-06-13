@@ -6,10 +6,12 @@ import com.svalero.ermreactive.exception.IncidentNotFoundException;
 import com.svalero.ermreactive.service.IncidentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
+
 import java.time.Duration;
 import java.util.Map;
 
@@ -20,22 +22,18 @@ public class IncidentController {
     IncidentService incidentService;
 
 
-    @GetMapping("/incidents")
-    public ResponseEntity<Flux<Incident>> getIncidents(@RequestParam Map<String, String> data) throws IncidentNotFoundException {
+    @GetMapping(value = "/incidents", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+    public Flux<Incident> getIncidents(@RequestParam Map<String, String> data) throws IncidentNotFoundException {
 
-        if (data.isEmpty()) {
-            return ResponseEntity.ok(incidentService.findAll().delayElements(Duration.ofSeconds(2)));
-        } else if (data.containsKey("status")) {
-            Flux<Incident> incidentList = incidentService.findByStatus(Integer.parseInt(data.get("status")));
-            return ResponseEntity.ok(incidentList);
+        if (data.containsKey("status")) {
+            return incidentService.findByStatus(Integer.parseInt(data.get("status")));
         } else if (data.containsKey("location")) {
-            Flux<Incident> incidentList = incidentService.findByLocation(data.get("location"));
-            return ResponseEntity.ok(incidentList);
+            return incidentService.findByLocation(data.get("location"));
         } else if (data.containsKey("description")) {
-            Flux<Incident> incidentList = incidentService.findByDescriptionContainingIgnoreCase(data.get("description"));
-            return ResponseEntity.ok(incidentList);
-        }
-        return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+            return incidentService.findByDescriptionContainingIgnoreCase(data.get("description"));
+        } else
+            return incidentService.findAll().delayElements(Duration.ofSeconds(2));
+
     }
 
     @GetMapping(value = "/incidents/{id}")
